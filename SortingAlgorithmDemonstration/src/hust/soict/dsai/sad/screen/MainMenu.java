@@ -8,36 +8,46 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class MainMenu extends JFrame {
+	Container cp = getContentPane();
+	JFrame frame = new JFrame();
+	JFrame createarray = new JFrame();
+	
+	
 	public MainMenu() {
-		Container cp = getContentPane();
-		cp.setLayout(new GridLayout(5,1));
+		
+		frame.setLayout(new GridLayout(5,1));
 		
 		JButton BubbleSortButton = new JButton("Bubble Sort");
-		cp.add(BubbleSortButton);
+		frame.add(BubbleSortButton);
 		
 		JButton QuickSortButton = new JButton("Quick Sort");
-		cp.add(QuickSortButton);
+		frame.add(QuickSortButton);
 		
 		JButton InsertionSortButton = new JButton("Insertion Sort");
-		cp.add(InsertionSortButton);
+		frame.add(InsertionSortButton);
 		
 		JButton HelpMenu = new JButton("Help");
-		cp.add(HelpMenu);
+		frame.add(HelpMenu);
 		
 		JButton ExitButton = new JButton("Exit");
-		cp.add(ExitButton);
+		frame.add(ExitButton);
 		
-		setVisible(true);
-		setTitle("Sorting Algorithm Demonstration");
-		setSize(400, 200);	
+		frame.setVisible(true);
+		frame.setTitle("Sorting Algorithm Demonstration");
+		frame.setSize(400, 200);	
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		ButtonListener btnListener = new ButtonListener();
 		HelpMenu.addActionListener(btnListener);
 		ExitButton.addActionListener(btnListener);
+		BubbleSortButton.addActionListener(btnListener);
+		QuickSortButton.addActionListener(btnListener);
+		InsertionSortButton.addActionListener(btnListener);
 	}
 	
 	private class ButtonListener implements ActionListener{
@@ -58,11 +68,55 @@ public class MainMenu extends JFrame {
 						"This program is to  explain three sorting algorithms on array: bubble sort, quicksort and insertion sort.", "Help", 
                         JOptionPane.INFORMATION_MESSAGE);
 			}
-		}
+			if(button.equals("Bubble Sort")) {
+				frame.setVisible(false);
+				CreateArray();	
+				JLabel label1 = new JLabel("Bubble Sort");
+				label1.setHorizontalTextPosition(JLabel.CENTER);
+				label1.setHorizontalAlignment(JLabel.CENTER);
+				label1.setVerticalTextPosition(JLabel.CENTER);
+				createarray.add(label1);
+			}
+			if(button.equals("Quick Sort")) {
+				frame.setVisible(false);
+				CreateArray();	
+				JLabel label2 = new JLabel("Quick Sort");
+				label2.setHorizontalTextPosition(JLabel.CENTER);
+				label2.setHorizontalAlignment(JLabel.CENTER);
+				label2.setVerticalTextPosition(JLabel.CENTER);
+				createarray.add(label2);
+			}
+			if(button.equals("Insertion Sort")) {
+				frame.setVisible(false);
+				CreateArray();	
+				JLabel label3 = new JLabel("Insertion Sort");
+				label3.setHorizontalTextPosition(JLabel.CENTER);
+				label3.setHorizontalAlignment(JLabel.CENTER);
+				label3.setVerticalTextPosition(JLabel.CENTER);
+				createarray.add(label3);
+			}
+		}	
 	}							
 	
 	public static void main(String[] args) {
 		new MainMenu();
 		// TODO Auto-generated method stub
 	}
-}
+
+	public void CreateArray() {
+			createarray.setLayout(new GridLayout(3,1));
+			
+			JButton RandomArrayButton = new JButton("Random Array");
+			createarray.add(RandomArrayButton);
+			
+			JButton InputArrayButton = new JButton("Input Array");
+			createarray.add(InputArrayButton);
+			
+			createarray.setVisible(true);
+			createarray.setTitle("Create Array");
+			createarray.setSize(400,200);
+			createarray.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
+			
+		}
+	}
+
