@@ -1,20 +1,40 @@
 package hust.soict.dsai.sad.algoritms;
 
-public class InsertionSort {
+import hust.soict.dsai.sad.main.SortArray;
+
+public class InsertionSort implements ISortAlgorithm {
 	
-	public void runSort(int[] arr, int length) {
+	private long stepDelay = 1;
+	
+	public void runSort(SortArray array) {
 		//key is the updateSingle() method in sortArray
 		int key;
+		int length = array.getArraySize();
 		for(int i = 1; i < length; i++) {
-			key = arr[i];
+			key = array.getValue(i);
 			int j = i -1;
 			
-			while (j >= 0 && arr[j] > key) {
-				arr[j+1] = arr[j];
+			while (j >= 0 && array.getValue(j) > key) {
+				array.updateSingle(j + 1, j, 5, true);;
 				j = j-1;
 			}
-			arr[j+1] = key;
+			array.updateSingle(j+1, key, getDelay(), true);;
 		}
 	}
 
+	@Override
+	public String getName() {
+		return "Insertion Sort";
+	}
+
+	@Override
+	public long getDelay() {
+		return stepDelay;
+	}
+
+	@Override
+	public void setDelay(long delay) {
+		this.stepDelay = delay;
+		
+	}
 }

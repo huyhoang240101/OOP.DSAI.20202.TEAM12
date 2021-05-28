@@ -1,8 +1,10 @@
 package hust.soict.dsai.sad.main;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class RandomArray {
+public class RandomArray implements ActionListener {
 	
 	private final int MAX_SIZE = 12;
 	private final int MIN_SIZE = 5;
@@ -31,6 +33,12 @@ public class RandomArray {
 
 	public int getSize() {
 		return size;
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		
+		
 	}
 	
 	
