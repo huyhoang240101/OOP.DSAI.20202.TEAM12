@@ -5,21 +5,13 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 public class InputArray implements ActionListener {
 	
 	private ArrayList<Integer> array = new ArrayList<Integer>();
 	private int size;
-	
-	public InputArray() {
-		Scanner in = new Scanner(System.in);
-		System.out.println("Enter array size:");
-		size = in.nextInt();
-		array = new ArrayList<Integer>();
-		for (int i = 0; i < size; i++) {
-			int value = in.nextInt();
-			array.add(value);
-		}
-	}
 	
 	
 	public ArrayList<Integer> getArray() {
@@ -31,9 +23,16 @@ public class InputArray implements ActionListener {
 		return size;
 	}
 
-
 	public void actionPerformed(ActionEvent e) {
-		
+		JFrame input = new JFrame();
+		String string = JOptionPane.showInputDialog ("Enter array size");
+		int size = Integer.parseInt (string);
+		for (int i = 1; i < size+1; i++) {
+			String string2 =JOptionPane.showInputDialog("Input array number "+ i);
+			int value = Integer.parseInt(string2);
+			array.add(value);
+		}
+		JOptionPane.showMessageDialog(input, array,"Input Array",
+				JOptionPane.INFORMATION_MESSAGE);	
 	}
-
 }

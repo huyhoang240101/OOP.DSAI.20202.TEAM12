@@ -4,6 +4,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 public class RandomArray implements ActionListener {
 	
 	private final int MAX_SIZE = 12;
@@ -16,7 +19,7 @@ public class RandomArray implements ActionListener {
 	private ArrayList<Integer> array;
 	private int size;
 	
-	public RandomArray() {
+	public void RandomArray() {
 		size = (int)Math.floor(Math.random()*(MAX_SIZE - MIN_SIZE + 1)+ MIN_SIZE);
 		array = new ArrayList<Integer>();
 		for (int i = 0; i < size; i++) {
@@ -24,8 +27,6 @@ public class RandomArray implements ActionListener {
 			array.add(random_value);
 		}
 	}
-
-	
 
 	public ArrayList<Integer> getArray() {
 		return array;
@@ -37,10 +38,9 @@ public class RandomArray implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
-		
-	}
-	
-	
-
+		RandomArray();
+		JFrame input = new JFrame();
+		JOptionPane.showMessageDialog(input, array,"Random Array",
+				JOptionPane.INFORMATION_MESSAGE);
+		}
 }

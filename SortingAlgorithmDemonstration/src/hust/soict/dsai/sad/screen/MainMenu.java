@@ -12,10 +12,13 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import hust.soict.dsai.sad.main.InputArray;
+import hust.soict.dsai.sad.main.RandomArray;
+
 public class MainMenu extends JFrame {
 	Container cp = getContentPane();
-	JFrame frame = new JFrame();
-	JFrame createarray = new JFrame();
+	public JFrame frame = new JFrame();
+	public JFrame createarray = new JFrame();
 	
 	
 	public MainMenu() {
@@ -108,9 +111,15 @@ public class MainMenu extends JFrame {
 			
 			JButton RandomArrayButton = new JButton("Random Array");
 			createarray.add(RandomArrayButton);
+			RandomArray randomarray = new RandomArray();
+			RandomArrayButton.addActionListener(randomarray);
+			
+			
 			
 			JButton InputArrayButton = new JButton("Input Array");
 			createarray.add(InputArrayButton);
+			InputArray inputarray = new InputArray();
+			InputArrayButton.addActionListener(inputarray);
 			
 			createarray.setVisible(true);
 			createarray.setTitle("Create Array");
