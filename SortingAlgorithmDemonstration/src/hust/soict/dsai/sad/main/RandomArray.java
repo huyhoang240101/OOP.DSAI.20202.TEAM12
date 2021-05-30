@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+import hust.soict.dsai.sad.algoritms.BubbleSort;
+import hust.soict.dsai.sad.screen.SortingDemoScreen;
+
 public class RandomArray implements ActionListener {
 	
 	private final int MAX_SIZE = 12;
@@ -18,8 +21,9 @@ public class RandomArray implements ActionListener {
 	
 	private ArrayList<Integer> array;
 	private int size;
+	private SortingDemoScreen sortingScreen;
 	
-	public void RandomArray() {
+	public RandomArray() {
 		size = (int)Math.floor(Math.random()*(MAX_SIZE - MIN_SIZE + 1)+ MIN_SIZE);
 		array = new ArrayList<Integer>();
 		for (int i = 0; i < size; i++) {
@@ -38,9 +42,10 @@ public class RandomArray implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		RandomArray();
+		new RandomArray();
 		JFrame input = new JFrame();
 		JOptionPane.showMessageDialog(input, array,"Random Array",
 				JOptionPane.INFORMATION_MESSAGE);
+		new SortingDemoScreen(new BubbleSort());
 		}
 }

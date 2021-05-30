@@ -39,10 +39,10 @@ public class SortArray extends JPanel {
 	
 	private int arrayChange = 0; // Number of changes to the array the current algorithm has taken so far
 	
-	public SortArray() {
+	public SortArray(ArrayList<Integer> arr) {
 		setBackground(Color.DARK_GRAY);
 		
-		NUM_BAR = array.size();
+		NUM_BAR = arr.size();
 		barColor = new int[NUM_BAR];
 		for (int i = 0; i < NUM_BAR; i++) {
 			barColor[i] = 0;
@@ -100,6 +100,13 @@ public class SortArray extends JPanel {
 		for (int i = 0; i < getArraySize(); i++) {
 			updateSingle(i, getValue(i), 5, false);
 		}
+	}
+	
+	public void resetColor() {
+		for (int i = 0; i < getArraySize(); i++) {
+			barColor[i] = 0;
+		}
+		repaint();
 	}
 	
 	public void paintComponent(Graphics g) {
