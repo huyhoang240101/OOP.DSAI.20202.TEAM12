@@ -6,8 +6,9 @@ import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import hust.soict.dsai.sad.screen.MainMenu;
 
-public class RandomArray implements ActionListener {
+public class RandomArray  implements ActionListener {
 	
 	private final int MAX_SIZE = 12;
 	private final int MIN_SIZE = 5;
@@ -15,10 +16,19 @@ public class RandomArray implements ActionListener {
 	private final int MAX_VALUE = 40;
 	private final int MIN_VALUE = 1;
 	
-	
 	private ArrayList<Integer> array;
 	private int size;
 	
+	
+	
+	public int getSize() {
+		return size;
+	}
+
+	public void setSize(int size) {
+		this.size = size;
+	}
+
 	public void RandomArray() {
 		size = (int)Math.floor(Math.random()*(MAX_SIZE - MIN_SIZE + 1)+ MIN_SIZE);
 		array = new ArrayList<Integer>();
@@ -30,10 +40,6 @@ public class RandomArray implements ActionListener {
 
 	public ArrayList<Integer> getArray() {
 		return array;
-	}
-
-	public int getSize() {
-		return size;
 	}
 
 	@Override

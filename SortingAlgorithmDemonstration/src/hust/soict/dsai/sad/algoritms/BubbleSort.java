@@ -31,5 +31,4 @@ public class BubbleSort implements ISortAlgorithm {
 	public void setDelay(long delay) {
 		this.stepDelay = delay;
 	}
-
 }

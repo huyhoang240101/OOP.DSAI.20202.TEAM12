@@ -1,26 +1,29 @@
 package hust.soict.dsai.sad.main;
 
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.Scanner;
+
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JRadioButton;
 
-public class InputArray implements ActionListener {
+import hust.soict.dsai.sad.screen.MainMenu;
+
+public class InputArray extends MainMenu implements ActionListener {
 	
 	private ArrayList<Integer> array = new ArrayList<Integer>();
 	private int size;
-	
-	
+
 	public ArrayList<Integer> getArray() {
 		return array;
 	}
 
-
-	public int getSize() {
-		return size;
+	public void setSize(int size) {
+		this.size = size;
 	}
 
 	public void actionPerformed(ActionEvent e) {
@@ -33,6 +36,6 @@ public class InputArray implements ActionListener {
 			array.add(value);
 		}
 		JOptionPane.showMessageDialog(input, array,"Input Array",
-				JOptionPane.INFORMATION_MESSAGE);	
+				JOptionPane.INFORMATION_MESSAGE);
 	}
 }
