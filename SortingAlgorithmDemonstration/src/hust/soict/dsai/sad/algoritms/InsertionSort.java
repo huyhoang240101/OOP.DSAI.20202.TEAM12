@@ -31,7 +31,7 @@ public class InsertionSort implements ISortAlgorithm {
 	public long getDelay() {
 		return stepDelay;
 	}
-
+	
 	@Override
 	public void setDelay(long delay) {
 		this.stepDelay = delay;

@@ -18,8 +18,9 @@ import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 
 import hust.soict.dsai.sad.algoritms.ISortAlgorithm;
+import hust.soict.dsai.sad.screen.Input;
 
-public class SortArray extends JPanel {
+public class SortArray extends JPanel implements Input {
 	
 	public static final int DEFAULT_WINDOW_HEGHT = 1280;
 	public static final int DEFAULT_WINDOW_WIDTH = 720;
@@ -27,7 +28,6 @@ public class SortArray extends JPanel {
 	
 	private static final double BAR_HEIGHT_PERCENT = 512.0/720.0;
 	
-	private ArrayList<Integer> array;
 	private int NUM_BAR;
 	private final int[] barColor;
 	private int spinnerValue = 0;
@@ -39,10 +39,10 @@ public class SortArray extends JPanel {
 	
 	private int arrayChange = 0; // Number of changes to the array the current algorithm has taken so far
 	
-	public SortArray(ArrayList<Integer> arr) {
+	public SortArray() {
 		setBackground(Color.DARK_GRAY);
 		
-		NUM_BAR = arr.size();
+		NUM_BAR = array.size();
 		barColor = new int[NUM_BAR];
 		for (int i = 0; i < NUM_BAR; i++) {
 			barColor[i] = 0;

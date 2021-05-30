@@ -13,10 +13,10 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-import hust.soict.dsai.sad.algoritms.ISortAlgorithm;
-import hust.soict.dsai.sad.main.InputArray;
-import hust.soict.dsai.sad.main.RandomArray;
-import hust.soict.dsai.sad.main.SortArray;
+import hust.soict.dsai.sad.algoritms.*;
+import hust.soict.dsai.sad.main.*;
+import hust.soict.dsai.sad.screen.Input.RandomArray;
+import hust.soict.dsai.sad.screen.Input.InputArray;
 
 public class MainMenu  extends JFrame  {
 	Container cp = getContentPane();
@@ -24,7 +24,8 @@ public class MainMenu  extends JFrame  {
 	public JFrame window = new JFrame();
     public static final int WIN_WIDTH = 1280;
     public static final int WIN_HEIGHT = 720;
-    private ArrayList<ISortAlgorithm> sortQueue;
+    
+
     private final int MAX_SIZE = 12;
 	private final int MIN_SIZE = 5;
 	
@@ -92,7 +93,9 @@ public class MainMenu  extends JFrame  {
 				label1.setHorizontalTextPosition(JLabel.CENTER);
 				label1.setHorizontalAlignment(JLabel.CENTER);
 				label1.setVerticalTextPosition(JLabel.CENTER);
-				createarray.add(label1);
+				createarray.add(label1); 
+				ISortAlgorithm BubbleSort;
+
 			}
 			if(button.equals("Quick Sort")) {
 				window.setVisible(false);
@@ -116,7 +119,7 @@ public class MainMenu  extends JFrame  {
 		
 	}							
 
-	public void CreateArray() {
+	public void CreateArray()  {
 			createarray.setLayout(new GridLayout(3,1));
 			
 			JButton RandomArrayButton = new JButton("Random Array");
@@ -135,40 +138,9 @@ public class MainMenu  extends JFrame  {
 			createarray.setLocationRelativeTo(null);
 			createarray.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
 		}
-	public void RandomArray() {
-		size = (int)Math.floor(Math.random()*(MAX_SIZE - MIN_SIZE + 1)+ MIN_SIZE);
-		array = new ArrayList<Integer>();
-		for (int i = 0; i < size; i++) {
-			int random_value = (int)Math.floor(Math.random()*(MAX_VALUE - MIN_VALUE + 1)+ MIN_VALUE);
-			array.add(random_value);
-		}
-	}
 	
-	public class RandomArray implements ActionListener{		
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			RandomArray();
-			JFrame input = new JFrame();
-			JOptionPane.showMessageDialog(input, array,"Random Array",
-					JOptionPane.INFORMATION_MESSAGE);
-		}
-	}
 	
-	public class InputArray implements ActionListener{
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			JFrame input = new JFrame();
-			String string = JOptionPane.showInputDialog ("Enter array size");
-			int size = Integer.parseInt (string);
-			for (int i = 1; i < size+1; i++) {
-				String string2 =JOptionPane.showInputDialog("Input array number "+ i);
-				int value = Integer.parseInt(string2);
-				array.add(value);
-			}
-			JOptionPane.showMessageDialog(input, array,"Input Array",
-					JOptionPane.INFORMATION_MESSAGE);
-		}
-	}
+
 	
 	public static void main(String [] args) {
 		new MainMenu();
