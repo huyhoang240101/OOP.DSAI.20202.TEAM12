@@ -41,7 +41,7 @@ public class SortArray extends JPanel {
 	
 	public SortArray(ArrayList<Integer> arr) {
 		setBackground(Color.DARK_GRAY);
-		
+		array = arr;
 		NUM_BAR = arr.size();
 		barColor = new int[NUM_BAR];
 		for (int i = 0; i < NUM_BAR; i++) {

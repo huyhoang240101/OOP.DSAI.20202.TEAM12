@@ -8,23 +8,12 @@ import java.util.Scanner;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-public class InputArray implements ActionListener {
+public class InputArray {
 	
-	private ArrayList<Integer> array = new ArrayList<Integer>();
+	private static ArrayList<Integer> array = new ArrayList<Integer>();
 	private int size;
 	
-	
-	public ArrayList<Integer> getArray() {
-		return array;
-	}
-
-
-	public int getSize() {
-		return size;
-	}
-
-	public void actionPerformed(ActionEvent e) {
-		JFrame input = new JFrame();
+	public static ArrayList<Integer> InputArray() {
 		String string = JOptionPane.showInputDialog ("Enter array size");
 		int size = Integer.parseInt (string);
 		for (int i = 1; i < size+1; i++) {
@@ -32,7 +21,11 @@ public class InputArray implements ActionListener {
 			int value = Integer.parseInt(string2);
 			array.add(value);
 		}
-		JOptionPane.showMessageDialog(input, array,"Input Array",
-				JOptionPane.INFORMATION_MESSAGE);	
+		return array;
 	}
+	
+	public int getSize() {
+		return size;
+	}
+	
 }

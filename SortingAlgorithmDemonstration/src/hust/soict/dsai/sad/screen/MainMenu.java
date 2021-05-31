@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import hust.soict.dsai.sad.algoritms.BubbleSort;
 import hust.soict.dsai.sad.main.InputArray;
 import hust.soict.dsai.sad.main.RandomArray;
 
@@ -19,11 +20,13 @@ public class MainMenu extends JFrame {
 	Container cp = getContentPane();
 	public JFrame frame = new JFrame();
 	public JFrame createarray = new JFrame();
+	private SortingDemoScreen sortingScreen;
 	
 	
 	public MainMenu() {
 		
 		frame.setLayout(new GridLayout(5,1));
+		frame.setLocationRelativeTo(null);
 		
 		JButton BubbleSortButton = new JButton("Bubble Sort");
 		frame.add(BubbleSortButton);

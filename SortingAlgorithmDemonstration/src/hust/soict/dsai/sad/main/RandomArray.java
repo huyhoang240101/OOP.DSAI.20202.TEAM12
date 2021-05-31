@@ -10,42 +10,31 @@ import javax.swing.JOptionPane;
 import hust.soict.dsai.sad.algoritms.BubbleSort;
 import hust.soict.dsai.sad.screen.SortingDemoScreen;
 
-public class RandomArray implements ActionListener {
+public class RandomArray {
 	
-	private final int MAX_SIZE = 12;
-	private final int MIN_SIZE = 5;
+	private static final int MAX_SIZE = 12;
+	private static final int MIN_SIZE = 5;
 	
-	private final int MAX_VALUE = 40;
-	private final int MIN_VALUE = 1;
+	private static final int MAX_VALUE = 40;
+	private static final int MIN_VALUE = 1;
 	
 	
-	private ArrayList<Integer> array;
-	private int size;
-	private SortingDemoScreen sortingScreen;
+	private static ArrayList<Integer> array;
+	private static int size;
 	
-	public RandomArray() {
+	public static ArrayList<Integer> RandomArray() {
 		size = (int)Math.floor(Math.random()*(MAX_SIZE - MIN_SIZE + 1)+ MIN_SIZE);
 		array = new ArrayList<Integer>();
 		for (int i = 0; i < size; i++) {
 			int random_value = (int)Math.floor(Math.random()*(MAX_VALUE - MIN_VALUE + 1)+ MIN_VALUE);
 			array.add(random_value);
 		}
-	}
-
-	public ArrayList<Integer> getArray() {
+		System.out.println(array);
 		return array;
 	}
 
 	public int getSize() {
 		return size;
 	}
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		new RandomArray();
-		JFrame input = new JFrame();
-		JOptionPane.showMessageDialog(input, array,"Random Array",
-				JOptionPane.INFORMATION_MESSAGE);
-		new SortingDemoScreen(new BubbleSort());
-		}
+	
 }
