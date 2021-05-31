@@ -13,7 +13,7 @@ import hust.soict.dsai.sad.screen.SortingDemoScreen;
 public class RandomArray {
 	
 	private static final int MAX_SIZE = 12;
-	private static final int MIN_SIZE = 5;
+	private static final int MIN_SIZE = 10;
 	
 	private static final int MAX_VALUE = 40;
 	private static final int MIN_VALUE = 1;

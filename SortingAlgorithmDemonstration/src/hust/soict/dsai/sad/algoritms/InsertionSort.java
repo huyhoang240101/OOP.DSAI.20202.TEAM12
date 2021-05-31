@@ -4,7 +4,7 @@ import hust.soict.dsai.sad.main.SortArray;
 
 public class InsertionSort implements ISortAlgorithm {
 	
-	private long stepDelay = 1;
+	private long stepDelay = 1000;
 	
 	public void runSort(SortArray array) {
 		//key is the updateSingle() method in sortArray

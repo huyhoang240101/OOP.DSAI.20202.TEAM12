@@ -9,6 +9,8 @@ import javax.swing.SwingWorker;
 
 import hust.soict.dsai.sad.algoritms.BubbleSort;
 import hust.soict.dsai.sad.algoritms.ISortAlgorithm;
+import hust.soict.dsai.sad.algoritms.InsertionSort;
+import hust.soict.dsai.sad.algoritms.QuickSort;
 import hust.soict.dsai.sad.main.RandomArray;
 import hust.soict.dsai.sad.main.SortArray;
 
@@ -49,7 +51,7 @@ public class SortingDemoScreen extends JFrame {
 				catch (InterruptedException e) {
 					e.printStackTrace();
 				}
-				
+								
 				sortArray.setName(algorithm.getName());
 				sortArray.setAlgorithm(algorithm);
 				
@@ -71,7 +73,7 @@ public class SortingDemoScreen extends JFrame {
 	public static void main(String[] args) {
 		ArrayList<Integer> array = RandomArray.RandomArray();
 		SortArray sorting = new SortArray(array);
-		SortingDemoScreen begin = new SortingDemoScreen(new BubbleSort(), sorting);
+		SortingDemoScreen begin = new SortingDemoScreen(new QuickSort(), sorting);
 		begin.onOpen();
 	
 	}

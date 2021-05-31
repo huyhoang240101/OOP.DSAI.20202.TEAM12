@@ -4,7 +4,7 @@ import hust.soict.dsai.sad.main.SortArray;
 
 public class QuickSort implements ISortAlgorithm {
 	
-	private long stepDelay = 30;
+	private long stepDelay = 1000;
 	
 	private int partition(SortArray array, int low, int high) {
 		int pivot = array.getValue(high);
