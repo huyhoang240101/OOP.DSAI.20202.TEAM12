@@ -1,16 +1,11 @@
 package hust.soict.dsai.sad.screen;
 
 import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.SwingWorker;
 
-import hust.soict.dsai.sad.algoritms.BubbleSort;
 import hust.soict.dsai.sad.algoritms.ISortAlgorithm;
-import hust.soict.dsai.sad.algoritms.InsertionSort;
-import hust.soict.dsai.sad.algoritms.QuickSort;
 import hust.soict.dsai.sad.main.SortArray;
 
 public class SortingDemoScreen extends JFrame implements Input {
