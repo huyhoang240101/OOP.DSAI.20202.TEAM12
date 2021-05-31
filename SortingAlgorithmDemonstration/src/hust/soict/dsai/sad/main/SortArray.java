@@ -1,6 +1,7 @@
 package hust.soict.dsai.sad.main;
 
 import java.awt.AlphaComposite;
+import java.awt.BasicStroke;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
@@ -18,9 +19,8 @@ import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 
 import hust.soict.dsai.sad.algoritms.ISortAlgorithm;
-import hust.soict.dsai.sad.screen.Input;
 
-public class SortArray extends JPanel implements Input {
+public class SortArray extends JPanel {
 	
 	public static final int DEFAULT_WINDOW_HEGHT = 1280;
 	public static final int DEFAULT_WINDOW_WIDTH = 720;
@@ -28,9 +28,9 @@ public class SortArray extends JPanel implements Input {
 	
 	private static final double BAR_HEIGHT_PERCENT = 512.0/720.0;
 	
+	private ArrayList<Integer> array;
 	private int NUM_BAR;
 	private final int[] barColor;
-	private int spinnerValue = 0;
     private String algorithmName = "";
     private ISortAlgorithm algorithm;
     private long algorithmDelay = 0;
@@ -39,10 +39,10 @@ public class SortArray extends JPanel implements Input {
 	
 	private int arrayChange = 0; // Number of changes to the array the current algorithm has taken so far
 	
-	public SortArray() {
+	public SortArray(ArrayList<Integer> arr) {
 		setBackground(Color.DARK_GRAY);
-		
-		NUM_BAR = array.size();
+		this.array = arr;
+		NUM_BAR = arr.size();
 		barColor = new int[NUM_BAR];
 		for (int i = 0; i < NUM_BAR; i++) {
 			barColor[i] = 0;
@@ -123,6 +123,7 @@ public class SortArray extends JPanel implements Input {
 			panelGraphics.drawString(" Current algorithm: " + algorithmName, 10, 30);
 			panelGraphics.drawString("Current step delay: " + algorithmDelay + "ms", 10, 55);
 			panelGraphics.drawString("     Array Changes: " + arrayChange, 10, 80);
+			panelGraphics.drawString("     Array: " + array, 10, 105);
 
 			drawBar(panelGraphics);
 		} finally {
@@ -155,7 +156,7 @@ public class SortArray extends JPanel implements Input {
 					double heightPercentOfPanel = percentOfMax * BAR_HEIGHT_PERCENT;
 					int heightMargin = 30;
 					int barHeight = (int) (heightPercentOfPanel * (((double) getHeight() - 2*heightMargin)));
-					int xBegin = (barWidth  * x) + widthMargin;
+					int xBegin = ((barWidth + widthMargin)  * x) + widthMargin;
 					int yBegin = getHeight() - barHeight - heightMargin;
 					
 					int val = barColor[x] * 2;
@@ -165,7 +166,10 @@ public class SortArray extends JPanel implements Input {
 					else {
 						bufferedGraphic.setColor(new Color(255, 255 - val, 255 - val));
 					}
-					bufferedGraphic.fillRect(xBegin, yBegin, barWidth, barHeight);
+					bufferedGraphic.setStroke(new BasicStroke(5));
+					bufferedGraphic.drawRect(xBegin, yBegin, barWidth, barHeight);
+					bufferedGraphic.setFont(new Font("Monospaced", Font.BOLD, 40));
+					bufferedGraphic.drawString((int) currentValue + "", xBegin, yBegin);
 					if (barColor[x] > 0) {
 						barColor[x] -= 5;
 					}
@@ -209,5 +213,4 @@ public class SortArray extends JPanel implements Input {
     public long getAlgorithmDelay(){
         return algorithmDelay;
     }
-
 }

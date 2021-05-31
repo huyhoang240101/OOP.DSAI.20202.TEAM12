@@ -7,8 +7,6 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import hust.soict.dsai.sad.algoritms.ISortAlgorithm;
-
 public interface Input {
 	int MAX_SIZE = 12;
 	int MIN_SIZE = 5;
@@ -16,7 +14,7 @@ public interface Input {
 	int MIN_VALUE = 1;
 	
 	ArrayList<Integer> array = new ArrayList<>() ;
-	
+
 	public static void RandomArray() {
 		int size = (int)Math.floor(Math.random()*(MAX_SIZE - MIN_SIZE + 1)+ MIN_SIZE);
 		for (int i = 0; i < size; i++) {
@@ -24,12 +22,12 @@ public interface Input {
 			array.add(random_value);
 		}
 	}
-	class RandomArray implements ActionListener{		
+	public class RandomArray implements ActionListener{		
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				array.clear();
 				RandomArray();
 				JFrame input = new JFrame();
-				
 				JOptionPane.showMessageDialog(input, array,"Random Array",
 						JOptionPane.INFORMATION_MESSAGE);
 			}
@@ -38,6 +36,7 @@ public interface Input {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			JFrame input = new JFrame();
+			array.clear();
 			String string = JOptionPane.showInputDialog ("Enter array size");
 			int size = Integer.parseInt (string);
 			for (int i = 1; i < size+1; i++) {

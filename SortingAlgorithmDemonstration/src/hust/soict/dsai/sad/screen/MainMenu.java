@@ -24,17 +24,10 @@ public class MainMenu  extends JFrame  {
 	public JFrame window = new JFrame();
     public static final int WIN_WIDTH = 1280;
     public static final int WIN_HEIGHT = 720;
-    
-
-    private final int MAX_SIZE = 12;
-	private final int MIN_SIZE = 5;
-	
-	private final int MAX_VALUE = 40;
-	private final int MIN_VALUE = 1;
-	private int size;
+ 
 	public ArrayList<Integer> array;
-
 	
+
 	public MainMenu() {
 		
 		window.setLayout(new GridLayout(5,1));
@@ -70,9 +63,11 @@ public class MainMenu  extends JFrame  {
 	
 	private class ButtonListener implements ActionListener{
 		private JPanel panel;
+			
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			String button =e.getActionCommand();
+				
 			if (button.equals("Exit")) {
 				int n = JOptionPane.showConfirmDialog(
 			            panel, "Are you sure you want to exit?", 
@@ -80,48 +75,63 @@ public class MainMenu  extends JFrame  {
 				if(n == JOptionPane.YES_OPTION)
 					System.exit(0);
 			}
+			
 			if (button.equals("Help")) {					
 				JOptionPane.showMessageDialog(panel, "Array is the most basic structure of computer science.\r\n" + 
 			"Most operations as well as other data structures are built and performed on array. \r\n" +
 						"This program is to  explain three sorting algorithms on array: bubble sort, quicksort and insertion sort.", "Help", 
                         JOptionPane.INFORMATION_MESSAGE);
 			}
+			
 			if(button.equals("Bubble Sort")) {
-				window.setVisible(false);
-				CreateArray();	
+				CreateArray();		
+						
+				JButton start1 = new JButton("Start");
+				Bubble BS = new Bubble();
+				start1.addActionListener(BS);	
+				createarray.add(start1);
+				
 				JLabel label1 = new JLabel("Bubble Sort");
 				label1.setHorizontalTextPosition(JLabel.CENTER);
 				label1.setHorizontalAlignment(JLabel.CENTER);
 				label1.setVerticalTextPosition(JLabel.CENTER);
-				createarray.add(label1); 
-				ISortAlgorithm BubbleSort;
-
+				createarray.add(label1);
 			}
+			
 			if(button.equals("Quick Sort")) {
-				window.setVisible(false);
 				CreateArray();	
+				
+				JButton start2 = new JButton("Start");
+				Quick QS = new Quick();
+				start2.addActionListener(QS);	
+				createarray.add(start2);
+				
 				JLabel label2 = new JLabel("Quick Sort");
 				label2.setHorizontalTextPosition(JLabel.CENTER);
 				label2.setHorizontalAlignment(JLabel.CENTER);
 				label2.setVerticalTextPosition(JLabel.CENTER);
 				createarray.add(label2);
 			}
+			
 			if(button.equals("Insertion Sort")) {
-				window.setVisible(false);
 				CreateArray();	
+				
+				JButton start3 = new JButton("Start");
+				Insertion IS = new Insertion();
+				start3.addActionListener(IS);	
+				createarray.add(start3);
+				
 				JLabel label3 = new JLabel("Insertion Sort");
 				label3.setHorizontalTextPosition(JLabel.CENTER);
 				label3.setHorizontalAlignment(JLabel.CENTER);
 				label3.setVerticalTextPosition(JLabel.CENTER);
-				createarray.add(label3);
+				createarray.add(label3); 
 			}
 		}
-		
 	}							
 
 	public void CreateArray()  {
-			createarray.setLayout(new GridLayout(3,1));
-			
+		
 			JButton RandomArrayButton = new JButton("Random Array");
 			createarray.add(RandomArrayButton);
 			RandomArray randomarray = new RandomArray();
@@ -131,27 +141,52 @@ public class MainMenu  extends JFrame  {
 			createarray.add(InputArrayButton);
 			InputArray inputarray = new InputArray();
 			InputArrayButton.addActionListener(inputarray);
-			
+						
+			createarray.setLayout(new GridLayout(4,1));
 			createarray.setVisible(true);
+			window.setVisible(false);
 			createarray.setTitle("Create Array");
 			createarray.setSize(400,200);
 			createarray.setLocationRelativeTo(null);
 			createarray.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
 		}
 	
+	public class Bubble  implements ActionListener,Input {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			SortArray sorting = new SortArray(array);
+			SortingDemoScreen begin = new SortingDemoScreen(new BubbleSort(), sorting);
+			begin.onOpen();
+		}
+	}
 	
+	public class Insertion implements ActionListener,Input {
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			SortArray sorting = new SortArray(array);
+			SortingDemoScreen begin = new SortingDemoScreen( new InsertionSort(), sorting);
+			begin.onOpen();			
+		}	
+	}
+	
+	public class Quick implements ActionListener, Input {
 
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			SortArray sorting = new SortArray(array);
+			SortingDemoScreen begin = new SortingDemoScreen( new QuickSort(), sorting);
+			begin.onOpen();
+		}	
+	}
 	
 	public static void main(String [] args) {
 		new MainMenu();
 	}
 }
 	
-	
 		
 		
-		
-	
 
 	
 

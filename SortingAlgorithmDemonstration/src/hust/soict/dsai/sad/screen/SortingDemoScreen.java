@@ -1,51 +1,33 @@
 package hust.soict.dsai.sad.screen;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.SwingWorker;
 
-import hust.soict.dsai.sad.algoritms.*;
-import hust.soict.dsai.sad.main.*;
-import hust.soict.dsai.sad.screen.*;
+import hust.soict.dsai.sad.algoritms.BubbleSort;
+import hust.soict.dsai.sad.algoritms.ISortAlgorithm;
+import hust.soict.dsai.sad.algoritms.InsertionSort;
+import hust.soict.dsai.sad.algoritms.QuickSort;
+import hust.soict.dsai.sad.main.SortArray;
 
-public class SortingDemoScreen extends JFrame {
-	private JFrame sort;
-    
-    public int WIN_WIDTH = 1280;
-    public int WIN_HEIGHT = 720;
+public class SortingDemoScreen extends JFrame implements Input {
 	
 	private SortArray sortArray;
 	private ISortAlgorithm algorithm;
-	public ArrayList<Integer> array;
-
 	
-	public void SortingDemoScreen(ISortAlgorithm thisalgorithm) {
+	public SortingDemoScreen(ISortAlgorithm thisalgorithm, SortArray thissortArray) {
 		
-		JFrame sort = new JFrame("Sort Visualiser");
-		sort.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        sort.setVisible(true);
-        
+		setExtendedState(JFrame.MAXIMIZED_BOTH); 
+		setVisible(true);
 		setLayout(new BorderLayout());
-		sortArray = new SortArray();
+		sortArray = thissortArray;
 		add(sortArray, BorderLayout.CENTER );
 		algorithm = thisalgorithm;
-		try {
-			Thread.sleep(250);
-		}
-		catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		setTitle("Sorting Demonstration");
 		
-		sortArray.setName(algorithm.getName());
-		sortArray.setAlgorithm(algorithm);
-		
-		algorithm.runSort(sortArray);
-		sortArray.resetColor();
-		sortArray.highlightArray();
-		sortArray.resetColor();
-		longSleep();
 	}
 	
 	private void longSleep() {
@@ -69,7 +51,7 @@ public class SortingDemoScreen extends JFrame {
 				catch (InterruptedException e) {
 					e.printStackTrace();
 				}
-				
+								
 				sortArray.setName(algorithm.getName());
 				sortArray.setAlgorithm(algorithm);
 				
@@ -82,10 +64,9 @@ public class SortingDemoScreen extends JFrame {
 			}
 			
 			public void done() {
-				dispose();
+				//dispose();
 			}
 		};
 		swingWorker.execute();
 	}
-
 }
