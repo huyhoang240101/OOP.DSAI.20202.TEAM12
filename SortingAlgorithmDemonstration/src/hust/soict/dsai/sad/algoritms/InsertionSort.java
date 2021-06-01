@@ -8,14 +8,13 @@ public class InsertionSort implements ISortAlgorithm {
 	
 	public void runSort(SortArray array) {
 		//key is the updateSingle() method in sortArray
-		int key;
 		int length = array.getArraySize();
 		for(int i = 1; i < length; i++) {
-			key = array.getValue(i);
+			int key = array.getValue(i);
 			int j = i -1;
 			
 			while (j >= 0 && array.getValue(j) > key) {
-				array.updateSingle(j + 1, j, 5, true);;
+				array.updateSingle(j + 1, array.getValue(j), 5, true);;
 				j = j-1;
 			}
 			array.updateSingle(j+1, key, getDelay(), true);;

@@ -73,7 +73,7 @@ public class SortingDemoScreen extends JFrame {
 	public static void main(String[] args) {
 		ArrayList<Integer> array = RandomArray.RandomArray();
 		SortArray sorting = new SortArray(array);
-		SortingDemoScreen begin = new SortingDemoScreen(new QuickSort(), sorting);
+		SortingDemoScreen begin = new SortingDemoScreen(new InsertionSort(), sorting);
 		begin.onOpen();
 	
 	}

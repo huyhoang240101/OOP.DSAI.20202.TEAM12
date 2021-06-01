@@ -170,7 +170,7 @@ public class SortArray extends JPanel {
 					bufferedGraphic.setStroke(new BasicStroke(5));
 					bufferedGraphic.drawRect(xBegin, yBegin, barWidth, barHeight);
 					bufferedGraphic.setFont(new Font("Monospaced", Font.BOLD, 40));
-					bufferedGraphic.drawString((int) currentValue + "", xBegin, yBegin);
+					bufferedGraphic.drawString((int) currentValue + "", xBegin + 10, yBegin - 10);
 					if (barColor[x] > 0) {
 						barColor[x] -= 5;
 					}
