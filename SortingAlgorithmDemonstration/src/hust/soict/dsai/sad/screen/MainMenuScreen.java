@@ -54,6 +54,7 @@ public class MainMenuScreen  extends JFrame  {
 		window.setTitle("Sorting Algorithm Demonstration");
 		window.setSize(400, 200);	
 		window.setLocationRelativeTo(null);
+		window.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		
 		window.addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e)
@@ -163,6 +164,7 @@ public class MainMenuScreen  extends JFrame  {
 			createarray.setTitle("Create Array");
 			createarray.setSize(400,200);
 			createarray.setLocationRelativeTo(null);
+			createarray.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 			
 			createarray.addWindowListener(new WindowAdapter() {
 				public void windowClosing(WindowEvent e)
