@@ -4,6 +4,9 @@ import java.awt.Container;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
@@ -51,7 +54,20 @@ public class MainMenuScreen  extends JFrame  {
 		window.setTitle("Sorting Algorithm Demonstration");
 		window.setSize(400, 200);	
 		window.setLocationRelativeTo(null);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		window.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		
+		window.addWindowListener(new WindowAdapter() {
+			public void windowClosing(WindowEvent e)
+			         {
+			        	 int n = JOptionPane.showConfirmDialog(
+						            null, "Are you sure you want to exit?", 
+						            "Exit", JOptionPane.YES_NO_OPTION);
+							if(n == JOptionPane.YES_OPTION)
+								System.exit(0);
+			         }
+			      });
+			   
+	
 		
 		ButtonListener btnListener = new ButtonListener();
 		HelpMenu.addActionListener(btnListener);
@@ -59,6 +75,7 @@ public class MainMenuScreen  extends JFrame  {
 		BubbleSortButton.addActionListener(btnListener);
 		QuickSortButton.addActionListener(btnListener);
 		InsertionSortButton.addActionListener(btnListener);
+
 	}
 	
 	public class ButtonListener implements ActionListener{
@@ -131,7 +148,6 @@ public class MainMenuScreen  extends JFrame  {
 	}							
 
 	public void CreateArray()  {
-		
 			JButton RandomArrayButton = new JButton("Random Array");
 			createarray.add(RandomArrayButton);
 			RandomArray randomarray = new RandomArray();
@@ -148,8 +164,19 @@ public class MainMenuScreen  extends JFrame  {
 			createarray.setTitle("Create Array");
 			createarray.setSize(400,200);
 			createarray.setLocationRelativeTo(null);
-			createarray.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
-		}
+			createarray.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+			
+			createarray.addWindowListener(new WindowAdapter() {
+				public void windowClosing(WindowEvent e)
+				{
+					int n = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit?",
+							"Exit", JOptionPane.YES_NO_OPTION);
+					if(n == JOptionPane.YES_OPTION)
+						System.exit(0);
+				}
+			});	     
+	}
+	
 	public class Bubble  implements ActionListener,Input {
 		
 		@Override

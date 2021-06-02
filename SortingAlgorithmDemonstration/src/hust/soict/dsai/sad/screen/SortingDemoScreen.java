@@ -74,6 +74,7 @@ public class SortingDemoScreen extends JFrame implements Input {
 		menubar.add(quicksort);
 		menubar.add(help);
 		
+		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		ExitApp();
 	}
 	
