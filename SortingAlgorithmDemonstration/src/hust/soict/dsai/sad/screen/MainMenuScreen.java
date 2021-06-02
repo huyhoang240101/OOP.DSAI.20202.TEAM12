@@ -15,10 +15,10 @@ import javax.swing.JPanel;
 
 import hust.soict.dsai.sad.algoritms.*;
 import hust.soict.dsai.sad.main.*;
-import hust.soict.dsai.sad.screen.Input.RandomArray;
-import hust.soict.dsai.sad.screen.Input.InputArray;
+import hust.soict.dsai.sad.main.Input.InputArray;
+import hust.soict.dsai.sad.main.Input.RandomArray;
 
-public class MainMenu  extends JFrame  {
+public class MainMenuScreen  extends JFrame  {
 	Container cp = getContentPane();
 	public JFrame createarray = new JFrame();
 	public JFrame window = new JFrame();
@@ -28,7 +28,7 @@ public class MainMenu  extends JFrame  {
 	public ArrayList<Integer> array;
 	
 
-	public MainMenu() {
+	public MainMenuScreen() {
 		
 		window.setLayout(new GridLayout(5,1));
 		
@@ -61,8 +61,8 @@ public class MainMenu  extends JFrame  {
 		InsertionSortButton.addActionListener(btnListener);
 	}
 	
-	private class ButtonListener implements ActionListener{
-		private JPanel panel;
+	public class ButtonListener implements ActionListener{
+		
 			
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -70,14 +70,14 @@ public class MainMenu  extends JFrame  {
 				
 			if (button.equals("Exit")) {
 				int n = JOptionPane.showConfirmDialog(
-			            panel, "Are you sure you want to exit?", 
+			            null, "Are you sure you want to exit?", 
 			            "Exit", JOptionPane.YES_NO_OPTION);
 				if(n == JOptionPane.YES_OPTION)
 					System.exit(0);
 			}
 			
 			if (button.equals("Help")) {					
-				JOptionPane.showMessageDialog(panel, "Array is the most basic structure of computer science.\r\n" + 
+				JOptionPane.showMessageDialog(null, "Array is the most basic structure of computer science.\r\n" + 
 			"Most operations as well as other data structures are built and performed on array. \r\n" +
 						"This program is to  explain three sorting algorithms on array: bubble sort, quicksort and insertion sort.", "Help", 
                         JOptionPane.INFORMATION_MESSAGE);
@@ -150,8 +150,8 @@ public class MainMenu  extends JFrame  {
 			createarray.setLocationRelativeTo(null);
 			createarray.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
 		}
-	
 	public class Bubble  implements ActionListener,Input {
+		
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			SortArray sorting = new SortArray(array);
@@ -181,7 +181,7 @@ public class MainMenu  extends JFrame  {
 	}
 	
 	public static void main(String [] args) {
-		new MainMenu();
+		new MainMenuScreen();
 	}
 }
 	

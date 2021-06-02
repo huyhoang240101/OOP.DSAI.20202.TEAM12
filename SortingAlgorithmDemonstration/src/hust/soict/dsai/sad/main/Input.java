@@ -1,4 +1,4 @@
-package hust.soict.dsai.sad.screen;
+package hust.soict.dsai.sad.main;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -27,15 +27,13 @@ public interface Input {
 			public void actionPerformed(ActionEvent e) {
 				array.clear();
 				RandomArray();
-				JFrame input = new JFrame();
-				JOptionPane.showMessageDialog(input, array,"Random Array",
+				JOptionPane.showMessageDialog(null, array,"Random Array",
 						JOptionPane.INFORMATION_MESSAGE);
 			}
 	}
 	public class InputArray implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			JFrame input = new JFrame();
 			array.clear();
 			String string = JOptionPane.showInputDialog ("Enter array size");
 			int size = Integer.parseInt (string);
@@ -44,7 +42,7 @@ public interface Input {
 				int value = Integer.parseInt(string2);
 				array.add(value);
 			}
-			JOptionPane.showMessageDialog(input, array,"Input Array",
+			JOptionPane.showMessageDialog(null, array,"Input Array",
 					JOptionPane.INFORMATION_MESSAGE);
 		}
 	}
