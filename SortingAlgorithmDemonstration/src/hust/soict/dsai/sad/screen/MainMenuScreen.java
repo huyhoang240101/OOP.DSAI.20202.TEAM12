@@ -94,10 +94,7 @@ public class MainMenuScreen  extends JFrame  {
 			}
 			
 			if (button.equals("Help")) {					
-				JOptionPane.showMessageDialog(null, "Array is the most basic structure of computer science.\r\n" + 
-			"Most operations as well as other data structures are built and performed on array. \r\n" +
-						"This program is to  explain three sorting algorithms on array: bubble sort, quicksort and insertion sort.", "Help", 
-                        JOptionPane.INFORMATION_MESSAGE);
+				showHelpMenu();
 			}
 			
 			if(button.equals("Bubble Sort")) {
@@ -209,6 +206,21 @@ public class MainMenuScreen  extends JFrame  {
 	
 	public static void main(String [] args) {
 		new MainMenuScreen();
+	}
+	
+	public void showHelpMenu() {
+		JOptionPane.showMessageDialog(null, 
+				"Array is the most basic structure of computer science.\r\n" + 
+		"Most operations as well as other data structures are built and performed on array. \r\n" +
+						"This program is to  explain three sorting algorithms on array: bubble sort, quicksort and insertion sort. \r\n \r\n" +
+		"First as you can see there are 5 buttons here. \r\n"+
+						"3 buttons are for choosing the way of sorting (Bubble Sort, Insertion Sort and Quick Sort). \r\n" +
+		"After choosing sorting type you can choose to input the array or randomly create the array. \r\n "+
+						"Then you can choose to start the sorting or choose to create the array again. \r\n \r\n"+
+		"One button for the help menu to understand the aim of this program and how to use.\r\n"+
+						"And one more button to exit the program."
+				,"Help", 
+                JOptionPane.INFORMATION_MESSAGE);
 	}
 }
 	
