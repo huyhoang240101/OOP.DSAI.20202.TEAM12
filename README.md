@@ -3,7 +3,7 @@ Member and Asignment:
 Lê Đức Anh 20194416 
 - Feasibility Study (50%)
 - Requirement Analysis (50%)
--Design:
+- Design:
  + Component Design:
     - Use case diagram (50%)
     - Class diagram (50%)
@@ -12,12 +12,13 @@ Lê Đức Anh 20194416
  + Implementation:
     Input.java
     Modifying SortingDemoScreen.java to fit MainMenuScreen.java
-Testing (50%) 
+- Testing (50%) 
+- Making Presentation Slide
 
 Nguyễn Huy Hoàng 20194433
 - Feasibility Study (50%)
 - Requirement Analysis (50%)
--Design:
+- Design:
  + Component Design:
     - Use case diagram (50%)
     - Class diagram (50%)
@@ -29,7 +30,8 @@ Nguyễn Huy Hoàng 20194433
     QuickSort.java
     ISortAlgorithm.java
     SortArray.java
-Testing (50%) 
+- Testing (50%) 
+- Writing Report
 
 
 
