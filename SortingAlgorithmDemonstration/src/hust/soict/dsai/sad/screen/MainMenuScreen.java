@@ -4,9 +4,6 @@ import java.awt.Container;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
@@ -54,20 +51,7 @@ public class MainMenuScreen  extends JFrame  {
 		window.setTitle("Sorting Algorithm Demonstration");
 		window.setSize(400, 200);	
 		window.setLocationRelativeTo(null);
-		window.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		
-		window.addWindowListener(new WindowAdapter() {
-			public void windowClosing(WindowEvent e)
-			         {
-			        	 int n = JOptionPane.showConfirmDialog(
-						            null, "Are you sure you want to exit?", 
-						            "Exit", JOptionPane.YES_NO_OPTION);
-							if(n == JOptionPane.YES_OPTION)
-								System.exit(0);
-			         }
-			      });
-			   
-	
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		ButtonListener btnListener = new ButtonListener();
 		HelpMenu.addActionListener(btnListener);
@@ -75,7 +59,6 @@ public class MainMenuScreen  extends JFrame  {
 		BubbleSortButton.addActionListener(btnListener);
 		QuickSortButton.addActionListener(btnListener);
 		InsertionSortButton.addActionListener(btnListener);
-
 	}
 	
 	public class ButtonListener implements ActionListener{
@@ -94,7 +77,10 @@ public class MainMenuScreen  extends JFrame  {
 			}
 			
 			if (button.equals("Help")) {					
-				showHelpMenu();
+				JOptionPane.showMessageDialog(null, "Array is the most basic structure of computer science.\r\n" + 
+			"Most operations as well as other data structures are built and performed on array. \r\n" +
+						"This program is to  explain three sorting algorithms on array: bubble sort, quicksort and insertion sort.", "Help", 
+                        JOptionPane.INFORMATION_MESSAGE);
 			}
 			
 			if(button.equals("Bubble Sort")) {
@@ -145,6 +131,7 @@ public class MainMenuScreen  extends JFrame  {
 	}							
 
 	public void CreateArray()  {
+		
 			JButton RandomArrayButton = new JButton("Random Array");
 			createarray.add(RandomArrayButton);
 			RandomArray randomarray = new RandomArray();
@@ -161,19 +148,8 @@ public class MainMenuScreen  extends JFrame  {
 			createarray.setTitle("Create Array");
 			createarray.setSize(400,200);
 			createarray.setLocationRelativeTo(null);
-			createarray.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-			
-			createarray.addWindowListener(new WindowAdapter() {
-				public void windowClosing(WindowEvent e)
-				{
-					int n = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit?",
-							"Exit", JOptionPane.YES_NO_OPTION);
-					if(n == JOptionPane.YES_OPTION)
-						System.exit(0);
-				}
-			});	     
-	}
-	
+			createarray.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
+		}
 	public class Bubble  implements ActionListener,Input {
 		
 		@Override
@@ -206,21 +182,6 @@ public class MainMenuScreen  extends JFrame  {
 	
 	public static void main(String [] args) {
 		new MainMenuScreen();
-	}
-	
-	public void showHelpMenu() {
-		JOptionPane.showMessageDialog(null, 
-				"Array is the most basic structure of computer science.\r\n" + 
-		"Most operations as well as other data structures are built and performed on array. \r\n" +
-						"This program is to  explain three sorting algorithms on array: bubble sort, quicksort and insertion sort. \r\n \r\n" +
-		"First as you can see there are 5 buttons here. \r\n"+
-						"3 buttons are for choosing the way of sorting (Bubble Sort, Insertion Sort and Quick Sort). \r\n" +
-		"After choosing sorting type you can choose to input the array or randomly create the array. \r\n "+
-						"Then you can choose to start the sorting or choose to create the array again. \r\n \r\n"+
-		"One button for the help menu to understand the aim of this program and how to use.\r\n"+
-						"And one more button to exit the program."
-				,"Help", 
-                JOptionPane.INFORMATION_MESSAGE);
 	}
 }
 	
