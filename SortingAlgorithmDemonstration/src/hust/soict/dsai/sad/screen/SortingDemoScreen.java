@@ -152,12 +152,21 @@ public class SortingDemoScreen extends JFrame implements Input {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			JOptionPane.showMessageDialog(null, "Array is the most basic structure of computer science.\r\n" + 
-					"Most operations as well as other data structures are built and performed on array. \r\n" +
-								"This program is to  explain three sorting algorithms on array: bubble sort, quicksort and insertion sort.", "Help", 
-		                        JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(null, 
+					"Array is the most basic structure of computer science.\r\n" + 
+			"Most operations as well as other data structures are built and performed on array. \r\n" +
+							"This program is to  explain three sorting algorithms on array: bubble sort, quicksort and insertion sort. \r\n \r\n" +
+			
+			"First as you can see there are 6 buttons here. \r\n"+
+			"You can choose to input the array or randomly reset the array. \r\n "+
+							"Then you can choose to start the sorting by choosing the type of sorting. \r\n "+
+							"3 buttons are for choosing the type of sorting (Bubble Sort, Insertion Sort and Quick Sort). \r\n" +
+			"One more button for the help menu to understand the aim of this program and how to use.\r\n"			
+					,"Help", 
+	                JOptionPane.INFORMATION_MESSAGE);
 		}
 	}
+	
 	public void ExitApp()
 	   {
 	      addWindowListener((WindowListener) new WindowAdapter()
