@@ -30,3 +30,4 @@ Testing (50%)
 Writing Report
 
 link Demo Video: https://drive.google.com/drive/folders/1eRUhNUoVMJH59t_TcnSg_TmORpPGpaXY?usp=sharing
+Link presentation: https://drive.google.com/file/d/1XEFjdoFqEFYdbMyytpvpXS59bP4JaC-p/view?usp=sharing
